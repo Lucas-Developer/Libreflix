@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Libreflix</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="/css/style2.css">
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+
+    <meta property="og:url" content="http://netfllix.com.br/adulto" />
+    <meta property="og:type" content="video.tv_show" />
+    <meta property="og:title" content="Conteúdo Adulto Netflix." />
+    <meta property="og:description" content="A nova série original que você tanto desejava." />
+    <meta property="og:image" content="http://netfllix.com.br/adulto/imgs/shareFB.png" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+
+    <script>
+
+
+      var bgzao = "imgs/obsabsorver.jpg";
+      var nf = {};
+
+      nf.videos = [
+        {
+          title: 'Observar e Absorver',
+          subtitle: 'A Filosofia de Eduardo Marinho',
+          placeholder: 'imgs/obsabsorver.jpg',
+          video: 'I7arqW5luKc',
+          thumb480: 'imgs/thumbs/ThumbNextEpisode_01.jpg',
+          thumb130: 'imgs/thumbs/ThumbNextEpisode_01_130x95.jpg',
+          runtime: '1:34:56'
+        },
+        /*{
+          title: 'Conteúdo Adulto',
+          subtitle: 'T1: E02 &ldquo;Noite de Entrega&rdquo;',
+          placeholder: 'imgs/placeholder-ep-2.jpg',
+          video: 'N5yRHCLDJwo',
+          thumb480: 'imgs/thumbs/ThumbNextEpisode_02.jpg',
+          thumb130: 'imgs/thumbs/ThumbNextEpisode_02_130x95.jpg',
+          runtime: '1:57'
+        } ,
+        {
+          title: 'GoT',
+          subtitle: 'T1: E03 &ldquo;Pau Pra Toda Obra&rdquo;',
+          placeholder: 'imgs/placeholder-ep-3.jpg',
+          video: '9Gyx0KGD0vU',
+          thumb480: 'imgs/thumbs/ThumbNextEpisode_03.jpg',
+          thumb130: 'imgs/thumbs/ThumbNextEpisode_03_130x95.jpg',
+          runtime: '1:28'
+        } */
+      ];
+
+    </script>
+
+    <style media="screen" type="text/css">
+
+    #nf-final-screen {
+      display: none;
+      background: no-repeat center / cover url(imgs/obsabsorver.jpg);
+      z-index: 1;
+    }
+
+    </style>
+
+  </head>
+  <body onload="Q()" id="go">
+
+    <div id="nf-player" class="stretch loading">
+      <div id="nf-video-wrap" class="stretch">
+        <div id="nf-video" class="stretch"></div>
+
+        <div id="nf-placeholder" class="stretch"></div>
+      </div>
+
+      <div id="nf-player-overlay" class="stretch">
+        <img class="nf-loading" src="imgs/loading.png">
+
+        <div id="nf-player-title">
+          <h1></h1>
+          <h3></h3>
+        </div>
+
+        <div id="nf-player-ctrl-wrap">
+          <div id="nf-playback-progress-wrap">
+            <div id="nf-playback-progress">
+              <div id="nf-playback-loaded"></div>
+              <div id="nf-playback-position">
+                <div id="nf-playback-position-bullet"></div>
+              </div>
+            </div>
+            <div id="nf-playback-time">
+              00:00
+            </div>
+          </div>
+          <div id="nf-player-ctrl">
+            <div id="nf-playback-ctrls-wrap" class="play">
+              <button type="button" id="nf-playback-play" class="nf-button"><img src="imgs/ico-play.png"></button>
+              <button type="button" id="nf-playback-pause" class="nf-button"><img src="imgs/ico-pause.png"></button>
+              <div class="sep"></div>
+            </div>
+            <div id="nf-audio-ctrls-wrap" class="volume">
+              <button type="button" id="nf-audio-volume" class="nf-button"><img src="imgs/ico-volume.png"></button>
+              <button type="button" id="nf-audio-mute" class="nf-button"><img src="imgs/ico-mute.png"></button>
+              <div class="sep"></div>
+              <div id="nf-volume-wrap">
+                <div>
+                  <div id="nf-volume">
+                    <div id="nf-volume-bar">
+                      <div id="nf-volume-bar-bullet"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="nf-info-wrap">
+              <span id="nf-info-series"></span>
+              <span id="nf-info-episode"></span>
+              <div class="sep"></div>
+            </div>
+            <div id="nf-navigation-ctrls-wrap">
+              <!--<button type="button" id="nf-next" class="nf-button"><img src="imgs/ico-next.png"></button>-->
+
+
+              <div id="nf-next-popup">
+                <div class="inner">
+                  <h4>Próximo episódio</h4>
+                  <div id="nf-next-popup-info">
+                    <div>
+                      <div id="nf-next-popup-image">
+                        <img src="imgs/ico-play-next.png">
+                      </div>
+                    </div>
+                    <div>
+                      <h2 id="nf-next-popup-subtitle"></h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div id="nf-fs-wrap">
+              <button type="button" id="nf-fs" class="nf-button"><img src="imgs/ico-fullscreen.png"></button>
+              <button type="button" id="nf-fs-ex" class="nf-button"><img src="imgs/ico-fullscreen-exit.png"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="nf-up-next" class="stretch">
+        <div>
+          <div id="nf-up-next-bg" class="stretch"></div>
+          <div id="nf-up-next-info">
+            <div id="nf-up-next-title">
+              <h1></h1>
+              <h3></h3>
+              <p>01/04/2017 L <span id="nf-runtime"></span>min</p>
+            </div>
+
+            <div id="nf-up-next-timer-wrap">
+              <span>O próximo episódio começa em </span>
+              <span id="nf-up-next-timer">15 segundos</span>
+            </div>
+            <div id="nf-up-next-go">
+              <div id="nf-up-next-image" class="stretch">
+                <img src="imgs/ico-play-next.png">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="nf-watch-again" class="stretch"></div>
+      </div>
+
+      <div id="nf-final-screen" class="stretch">
+        <!-- <div id="nf-final-info">
+          <h1>Quer prolongar a diversão?</h1>
+          <h2>Você vai se deliciar com estes títulos...</h2>
+
+          <div id="nf-share" class="recommendation">
+            <a href="https://www.facebook.com/dialog/feed?display=page&amp;name=O%20inacredit%C3%A1vel%20aconteceu.&amp;description=Todos%20os%20epis%C3%B3dios%20de%20%23GoT%20na%20Netflix.&amp;picture=http://netfllix.com.br/GoT/imgs/shareFB.png&amp;link=http://netfllix.com.br/GoT/" target="_blank">
+              <img class="poster" src="imgs/sacanagem.jpg">
+              <img class="play" src="imgs/ico-play-next-big.png">
+            </a>
+          </div>
+          <div id="nf-april-first" class="recommendation">
+            <a href="https://www.facebook.com/dialog/feed?display=page&amp;name=O%20inacredit%C3%A1vel%20aconteceu.&amp;description=Todos%20os%20epis%C3%B3dios%20de%20%23GoT%20na%20Netflix.&amp;picture=http://netfllix.com.br/GoT/imgs/shareFB.png&amp;link=http://netfllix.com.br/GoT/" target="_blank">
+              <img class="poster" src="imgs/prazeres.jpg">
+              <img class="play" src="imgs/ico-play-next-big.png">
+            </a>
+          </div>
+        </div>
+        -->
+
+        <div id="nf-final-watch-again" class="stretch">
+          <div class="nf-classifique">
+            <span>Classifique:</span>
+            <img src="imgs/stars.png">
+          </div>
+        </div>
+        <!--<div id="nf-segunda-temporada">
+            <h2>Temporada 2 em breve:</h2>
+            <div class="nf-video-segunda-temporada t1">
+              <div><p>Abrindo Firma em Cartório</p></div>
+            </div>
+            <div class="nf-video-segunda-temporada t2">
+              <div><p>Pagando Boletos</p></div>
+            </div>
+            <div class="nf-video-segunda-temporada t3">
+              <div><p>Fazendo Arroz Soltinho</p></div>
+            </div>
+        </div>
+      -->
+      </div>
+    </div>
+
+    <div id="nf-mobile">
+      <img class="nf-loading" src="imgs/loading.png" style="opacity: 1">
+    </div>
+  </body>
+
+  <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="yt.js"></script>
+</html>

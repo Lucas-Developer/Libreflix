@@ -28,9 +28,9 @@
 
 
       var bgzao = "imgs/obsabsorver.jpg";
-      var nf = {};
+      var lb = {};
 
-      nf.videos = [
+      lb.videos = [
         {
           title: 'Observar e Absorver',
           subtitle: 'A Filosofia de Eduardo Marinho',
@@ -64,7 +64,7 @@
 
     <style media="screen" type="text/css">
 
-    #nf-final-screen {
+    #pl-final-screen {
       display: none;
       background: no-repeat center / cover url(imgs/obsabsorver.jpg);
       z-index: 1;
@@ -75,73 +75,73 @@
   </head>
   <body onload="Q()" id="go">
 
-    <div id="nf-player" class="stretch loading">
-      <div id="nf-video-wrap" class="stretch">
-        <div id="nf-video" class="stretch"></div>
+    <div id="pl-player" class="stretch loading">
+      <div id="pl-video-wrap" class="stretch">
+        <div id="pl-video" class="stretch"></div>
 
-        <div id="nf-placeholder" class="stretch"></div>
+        <div id="pl-placeholder" class="stretch"></div>
       </div>
 
-      <div id="nf-player-overlay" class="stretch">
-        <img class="nf-loading" src="imgs/loading.png">
+      <div id="pl-player-overlay" class="stretch">
+        <img class="pl-loading" src="imgs/loading.png">
 
-        <div id="nf-player-title">
+        <div id="pl-player-title">
           <h1></h1>
           <h3></h3>
         </div>
 
-        <div id="nf-player-ctrl-wrap">
-          <div id="nf-playback-progress-wrap">
-            <div id="nf-playback-progress">
-              <div id="nf-playback-loaded"></div>
-              <div id="nf-playback-position">
-                <div id="nf-playback-position-bullet"></div>
+        <div id="pl-player-ctrl-wrap">
+          <div id="pl-playback-progress-wrap">
+            <div id="pl-playback-progress">
+              <div id="pl-playback-loaded"></div>
+              <div id="pl-playback-position">
+                <div id="pl-playback-position-bullet"></div>
               </div>
             </div>
-            <div id="nf-playback-time">
+            <div id="pl-playback-time">
               00:00
             </div>
           </div>
-          <div id="nf-player-ctrl">
-            <div id="nf-playback-ctrls-wrap" class="play">
-              <button type="button" id="nf-playback-play" class="nf-button"><img src="imgs/ico-play.png"></button>
-              <button type="button" id="nf-playback-pause" class="nf-button"><img src="imgs/ico-pause.png"></button>
+          <div id="pl-player-ctrl">
+            <div id="pl-playback-ctrls-wrap" class="play">
+              <button type="button" id="pl-playback-play" class="pl-button"><img src="imgs/ico-play.png"></button>
+              <button type="button" id="pl-playback-pause" class="pl-button"><img src="imgs/ico-pause.png"></button>
               <div class="sep"></div>
             </div>
-            <div id="nf-audio-ctrls-wrap" class="volume">
-              <button type="button" id="nf-audio-volume" class="nf-button"><img src="imgs/ico-volume.png"></button>
-              <button type="button" id="nf-audio-mute" class="nf-button"><img src="imgs/ico-mute.png"></button>
+            <div id="pl-audio-ctrls-wrap" class="volume">
+              <button type="button" id="pl-audio-volume" class="pl-button"><img src="imgs/ico-volume.png"></button>
+              <button type="button" id="pl-audio-mute" class="pl-button"><img src="imgs/ico-mute.png"></button>
               <div class="sep"></div>
-              <div id="nf-volume-wrap">
+              <div id="pl-volume-wrap">
                 <div>
-                  <div id="nf-volume">
-                    <div id="nf-volume-bar">
-                      <div id="nf-volume-bar-bullet"></div>
+                  <div id="pl-volume">
+                    <div id="pl-volume-bar">
+                      <div id="pl-volume-bar-bullet"></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="nf-info-wrap">
-              <span id="nf-info-series"></span>
-              <span id="nf-info-episode"></span>
+            <div id="pl-info-wrap">
+              <span id="pl-info-series"></span>
+              <span id="pl-info-episode"></span>
               <div class="sep"></div>
             </div>
-            <div id="nf-navigation-ctrls-wrap">
-              <!--<button type="button" id="nf-next" class="nf-button"><img src="imgs/ico-next.png"></button>-->
+            <div id="pl-navigation-ctrls-wrap">
+              <!--<button type="button" id="pl-next" class="pl-button"><img src="imgs/ico-next.png"></button>-->
 
 
-              <div id="nf-next-popup">
+              <div id="pl-next-popup">
                 <div class="inner">
                   <h4>Próximo episódio</h4>
-                  <div id="nf-next-popup-info">
+                  <div id="pl-next-popup-info">
                     <div>
-                      <div id="nf-next-popup-image">
+                      <div id="pl-next-popup-image">
                         <img src="imgs/ico-play-next.png">
                       </div>
                     </div>
                     <div>
-                      <h2 id="nf-next-popup-subtitle"></h2>
+                      <h2 id="pl-next-popup-subtitle"></h2>
                     </div>
                   </div>
                 </div>
@@ -149,52 +149,52 @@
 
             </div>
 
-            <div id="nf-fs-wrap">
-              <button type="button" id="nf-fs" class="nf-button"><img src="imgs/ico-fullscreen.png"></button>
-              <button type="button" id="nf-fs-ex" class="nf-button"><img src="imgs/ico-fullscreen-exit.png"></button>
+            <div id="pl-fs-wrap">
+              <button type="button" id="pl-fs" class="pl-button"><img src="imgs/ico-fullscreen.png"></button>
+              <button type="button" id="pl-fs-ex" class="pl-button"><img src="imgs/ico-fullscreen-exit.png"></button>
             </div>
           </div>
         </div>
       </div>
 
 
-      <div id="nf-up-next" class="stretch">
+      <div id="pl-up-next" class="stretch">
         <div>
-          <div id="nf-up-next-bg" class="stretch"></div>
-          <div id="nf-up-next-info">
-            <div id="nf-up-next-title">
+          <div id="pl-up-next-bg" class="stretch"></div>
+          <div id="pl-up-next-info">
+            <div id="pl-up-next-title">
               <h1></h1>
               <h3></h3>
-              <p>01/04/2017 L <span id="nf-runtime"></span>min</p>
+              <p>01/04/2017 L <span id="pl-runtime"></span>min</p>
             </div>
 
-            <div id="nf-up-next-timer-wrap">
+            <div id="pl-up-next-timer-wrap">
               <span>O próximo episódio começa em </span>
-              <span id="nf-up-next-timer">15 segundos</span>
+              <span id="pl-up-next-timer">15 segundos</span>
             </div>
-            <div id="nf-up-next-go">
-              <div id="nf-up-next-image" class="stretch">
+            <div id="pl-up-next-go">
+              <div id="pl-up-next-image" class="stretch">
                 <img src="imgs/ico-play-next.png">
               </div>
             </div>
           </div>
         </div>
 
-        <div id="nf-watch-again" class="stretch"></div>
+        <div id="pl-watch-again" class="stretch"></div>
       </div>
 
-      <div id="nf-final-screen" class="stretch">
-        <!-- <div id="nf-final-info">
+      <div id="pl-final-screen" class="stretch">
+        <!-- <div id="pl-final-info">
           <h1>Quer prolongar a diversão?</h1>
           <h2>Você vai se deliciar com estes títulos...</h2>
 
-          <div id="nf-share" class="recommendation">
+          <div id="pl-share" class="recommendation">
             <a href="https://www.facebook.com/dialog/feed?display=page&amp;name=O%20inacredit%C3%A1vel%20aconteceu.&amp;description=Todos%20os%20epis%C3%B3dios%20de%20%23GoT%20na%20Netflix.&amp;picture=http://netfllix.com.br/GoT/imgs/shareFB.png&amp;link=http://netfllix.com.br/GoT/" target="_blank">
               <img class="poster" src="imgs/sacanagem.jpg">
               <img class="play" src="imgs/ico-play-next-big.png">
             </a>
           </div>
-          <div id="nf-april-first" class="recommendation">
+          <div id="pl-april-first" class="recommendation">
             <a href="https://www.facebook.com/dialog/feed?display=page&amp;name=O%20inacredit%C3%A1vel%20aconteceu.&amp;description=Todos%20os%20epis%C3%B3dios%20de%20%23GoT%20na%20Netflix.&amp;picture=http://netfllix.com.br/GoT/imgs/shareFB.png&amp;link=http://netfllix.com.br/GoT/" target="_blank">
               <img class="poster" src="imgs/prazeres.jpg">
               <img class="play" src="imgs/ico-play-next-big.png">
@@ -203,21 +203,21 @@
         </div>
         -->
 
-        <div id="nf-final-watch-again" class="stretch">
-          <div class="nf-classifique">
+        <div id="pl-final-watch-again" class="stretch">
+          <div class="pl-classifique">
             <span>Classifique:</span>
             <img src="imgs/stars.png">
           </div>
         </div>
-        <!--<div id="nf-segunda-temporada">
+        <!--<div id="pl-segunda-temporada">
             <h2>Temporada 2 em breve:</h2>
-            <div class="nf-video-segunda-temporada t1">
+            <div class="pl-video-segunda-temporada t1">
               <div><p>Abrindo Firma em Cartório</p></div>
             </div>
-            <div class="nf-video-segunda-temporada t2">
+            <div class="pl-video-segunda-temporada t2">
               <div><p>Pagando Boletos</p></div>
             </div>
-            <div class="nf-video-segunda-temporada t3">
+            <div class="pl-video-segunda-temporada t3">
               <div><p>Fazendo Arroz Soltinho</p></div>
             </div>
         </div>
@@ -225,8 +225,8 @@
       </div>
     </div>
 
-    <div id="nf-mobile">
-      <img class="nf-loading" src="imgs/loading.png" style="opacity: 1">
+    <div id="pl-mobile">
+      <img class="pl-loading" src="imgs/loading.png" style="opacity: 1">
     </div>
   </body>
 

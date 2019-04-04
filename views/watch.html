@@ -14,6 +14,11 @@
     thumb130: '{{ thumb130 }}',
     runtime: '{{ runtime }}'
   }];
+  $(document).ready(function(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        document.getElementsByClassName('pl-mobile-play')[0].style.display = "block";
+    }
+  })
 </script>
 
 <style media="screen" type="text/css">
@@ -29,6 +34,7 @@
 <libreplayer>
 
   <body onload="Q()" id="go" class="libreplayer">
+    <button type="button" id="pl-playback-play" class="pl-button pl-mobile-play" onclick="this.style.cssText='display:none'" style="z-index: 99; display:none"><img src="https://libreflix.org/img/ico-play.png"></button>
 
     <div id="pl-player" class="stretch loading">
       <div id="pl-video-wrap" class="stretch">
